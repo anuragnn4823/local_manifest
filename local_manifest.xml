@@ -19,7 +19,6 @@
   <!-- /* common mtk */ -->
 
   <!-- hardware -->
-  <remove-project name="PixelExperience/hardware_mediatek" />
   <project path="hardware/mediatek" name="android_hardware_mediatek.git" remote="an" revision="lineage-20" clone-depth="1" />
 
   <!-- sepolicy -->
