@@ -1,34 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 
-  <remote name="t25" fetch="https://github.com/TelegramAt25" />
-  <remote name="LOS" fetch="https://github.com/LineageOS" />
+  <remote name="an" fetch="https://github.com/anuragnn4823" />
+  <remote name="pe" fetch="https://github.com/PixelExperience" />
   <remote name="ImSurajxD" fetch="https://gitlab.com/ImSurajxD" />
 
   <!-- /* device specific */ -->
 
   <!-- device -->
-  <project path="device/xiaomi/selene" name="android_device_xiaomi_selene.git" remote="t25" revision="arrow-13.1" clone-depth="1" />
+  <project path="device/xiaomi/selene" name="android_device_xiaomi_selene.git" remote="an" revision="skyline-13-r2" clone-depth="1" />
 
   <!-- vendor -->
-  <project path="vendor/xiaomi/selene" name="android_vendor_xiaomi_selene.git" remote="t25" revision="thirteen" clone-depth="1" />
+  <project path="vendor/xiaomi/selene" name="android_vendor_xiaomi_selene.git" remote="an" revision="thirteen" clone-depth="1" />
 
   <!-- kernel -->
-  <project path="kernel/xiaomi/selene" name="android_kernel_xiaomi_selene.git" remote="t25" revision="thirteen-stable" clone-depth="1" />
-
-  <!-- hack - remove ArrowOS's mtk specific repo and favor LineageOS's instead
-       LineageOS's repo are generally more up to date -->
-  <remove-project name="android_device_mediatek_sepolicy_vndr"/>
-  <remove-project name="android_hardware_mediatek"/>
+  <project path="kernel/xiaomi/selene" name="android_kernel_xiaomi_selene.git" remote="an" revision="thirteen-stable" clone-depth="1" />
 
   <!-- /* common mtk */ -->
 
   <!-- hardware -->
-  <project path="hardware/mediatek" name="android_hardware_mediatek.git" remote="LOS" revision="lineage-20" clone-depth="1" />
+  <remove-project name="PixelExperience/hardware_mediatek" />
+  <project path="hardware/mediatek" name="android_hardware_mediatek.git" remote="an" revision="lineage-20" clone-depth="1" />
 
   <!-- sepolicy -->
-  <project path="device/mediatek/sepolicy_vndr" name="android_device_mediatek_sepolicy_vndr.git" remote="LOS" revision="lineage-20" clone-depth="1" />
+  <project path="device/mediatek/sepolicy_vndr" name="device_mediatek_sepolicy_vndr.git" remote="pe" revision="thirteen" clone-depth="1" />
 
+  
+  <!-- /* Some Patches */ -->
+  <!-- Fix for boot animation lag in Pixel Experience -->
+  
+<remove-project name="PixelExperience/frameworks_native" />
+  
+<project path="frameworks/native" name="frameworks_native.git" remote="an" revision="alpha-13" />
+
+
+<!-- fix for telelgram video playing, presumably, and more i guess -->
+  
+  
+  <remove-project name="PixelExperience/frameworks_av" />
+  
+<project path="frameworks/av" name="frameworks_av.git" remote="an" revision="aosp-13" />
+
+  
+  
+  
   <!-- /* rombuilders stuff */ -->
 
   <!-- clang -->
